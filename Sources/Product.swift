@@ -1,21 +1,20 @@
-//
-//  File.swift
-//  Ecommerce
-//
-//  Created by Daniel Magnusson on 1/24/25.
-//
-
-import Foundation
-
 struct Product {
-    enum Category {
-        case electronics, clothing, books
+    enum Category: String {
+        case books, clothing, electronics
     }
     
     let id: Int
     let name: String
     let category: Category
-    let price: Double
+    var price: Double
+    
+    mutating func applyCoupon(_ percentage: Double) {
+        price = price * percentage
+    }
+    
+    func printCategory() {
+        print(category)
+    }
 }
 
 extension Product {
